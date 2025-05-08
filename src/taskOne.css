@@ -1,0 +1,65 @@
+.header {
+    background-color: #333;
+    color: white;
+    padding: 20px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style: none;
+    padding: 20px;
+    margin: 40px auto;
+}
+
+/* 各投稿カード */
+li {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    margin: 30px;
+    padding: 30px 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* カテゴリータグ（右上） */
+.category {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    gap: 8px;
+}
+
+.category span {
+    border: 2px solid blue;
+    color: blue;
+    border-radius: 8px;
+    padding: 2px 6px;
+    font-size: 0.8rem;
+    background-color: white;
+    font-weight: 500;
+}
+
+/* 日付 */
+li>p:first-child {
+    font-size: 12px;
+    color: #999;
+    margin-bottom: 8px;
+}
+
+/* タイトル */
+li>h1 {
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+/* コンテンツ本文 */
+li>p:last-child {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+}
