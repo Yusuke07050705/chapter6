@@ -1,20 +1,10 @@
-.header {
-    background-color: #333;
-    color: white;
-    padding: 20px 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-ul {
+.ul {
     list-style: none;
     padding: 20px;
     margin: 40px auto;
 }
 
-/* 各投稿カード */
-li {
+.li {
     position: relative;
     background-color: #fff;
     border: 1px solid #ddd;
@@ -25,7 +15,6 @@ li {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
-/* カテゴリータグ（右上） */
 .category {
     position: absolute;
     top: 12px;
@@ -44,21 +33,18 @@ li {
     font-weight: 500;
 }
 
-/* 日付 */
-li>p:first-child {
+.date {
     font-size: 12px;
     color: #999;
     margin-bottom: 8px;
 }
 
-/* タイトル */
-li>h1 {
+.title {
     font-size: 20px;
     margin: 8px 0;
 }
 
-/* コンテンツ本文 */
-li>p:last-child {
+.content {
     font-size: 14px;
     color: #333;
     line-height: 1.5;
