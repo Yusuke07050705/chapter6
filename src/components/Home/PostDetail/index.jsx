@@ -1,11 +1,24 @@
 import React from "react";
 import { useParams } from "react-router-dom";
-import { posts } from "../../../data/posts";
+import { useState, useEffect } from "react";
 import styles from "./PostDetail.module.css"
 
 export const PostDetail = () => {
   const { id } = useParams();
-  const post = posts.find((item) => item.id === parseInt(id));
+  const [ post, setPost ] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const getApi = async () => {
+      const response = await fetch(`https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts/${id}`);
+      const data = await response.json();
+      setPost(data.post)
+      setLoading(false);
+    };
+    getApi();
+  },[]);
+
+  if(loading) return <p>読み込み中です</p>;
   if(!post) return <p>記事が見つかりません</p>;
 
   return (
