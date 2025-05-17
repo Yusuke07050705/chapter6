@@ -1,9 +1,22 @@
+import { useState, useEffect } from "react";
 import React from "react";
-import { posts } from "../../data/posts";
 import styles from "./Home.module.css";
 import { Link } from "react-router-dom";
 
 export const Home = () => {
+  const [ posts, setPosts ] = useState([]);
+
+  useEffect(() => {
+    const getApi = async () =>{
+      const response = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts")
+      const data = await response.json();
+      setPosts(data.posts)
+    }
+
+    getApi();
+
+  },[]);
+
   return (
     <div>
       <ul className={styles.ul}>
