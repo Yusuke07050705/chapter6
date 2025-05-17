@@ -5,17 +5,21 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [ posts, setPosts ] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getApi = async () =>{
       const response = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts")
       const data = await response.json();
       setPosts(data.posts)
+      setLoading(false);
     }
 
     getApi();
 
   },[]);
+
+  if(loading) return <p>読み込み中です</p>;
 
   return (
     <div>
