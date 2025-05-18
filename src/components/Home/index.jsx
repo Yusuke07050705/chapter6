@@ -12,6 +12,7 @@ export const Home = () => {
       const response = await fetch("https://1hmfpsvto6.execute-api.ap-northeast-1.amazonaws.com/dev/posts")
       const data = await response.json();
       setPosts(data.posts)
+      setLoading(false);
     }
 
     getApi();
