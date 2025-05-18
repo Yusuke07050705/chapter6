@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 
 export const Home = () => {
   const [ posts, setPosts ] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const getApi = async () =>{
@@ -16,6 +17,8 @@ export const Home = () => {
     getApi();
 
   },[]);
+
+  if(loading) return <p>読み込み中です</p>;
 
   return (
     <div>
