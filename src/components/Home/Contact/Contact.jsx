@@ -14,6 +14,8 @@ export default function Contact() {
     message:""
   });
 
+  const [ isSubmitting, setIsSubmitting ] = useState(false);
+
   const validate = () => {
     const newError = {
       name:"",
@@ -53,6 +55,7 @@ export default function Contact() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!validate()) return;
+    setIsSubmitting(true);
 
     const data = {
       name,
@@ -76,6 +79,8 @@ export default function Contact() {
       handleClear();
     } catch {
       alert("送信できませんでした");
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -103,6 +108,7 @@ export default function Contact() {
             name="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
+            disabled={isSubmitting}
             className={styles.input}
           />
           {error.name && <p className={styles.error}>{error.name}</p>}
@@ -116,6 +122,7 @@ export default function Contact() {
             name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            disabled={isSubmitting}
             className={styles.input}
           />
           {error.email && <p className={styles.error}>{error.email}</p>}
@@ -128,6 +135,7 @@ export default function Contact() {
             name="message"
             value={message}
             onChange={(e) => setMessage(e.target.value)}
+            disabled={isSubmitting}
             className={styles.textarea}
             rows="5"
           />
