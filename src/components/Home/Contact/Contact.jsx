@@ -143,7 +143,7 @@ export default function Contact() {
         </div>
 
         <div className={styles.buttons}>
-          <button type="submit" className={styles.submit}>送信</button>
+          <button type="submit" className={styles.submit} disabled={isSubmitting}>送信</button>
           <button type="button" onClick={handleClear} className={styles.clear}>クリア</button>
         </div>
       </form>
